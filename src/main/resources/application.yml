@@ -1,0 +1,54 @@
+server:
+  port: 8090
+
+spring:
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: false
+  cloud:
+    circuitbreaker:
+      resilience4j:
+        enabled: true
+
+experian:
+  oauth2:
+    url: https://uat-us-api.experian.com/oauth2/v1/token
+    client-id: 5AUALtffLUEz3NxVVr9gS0WBImq9uskw
+    client-secret: qTaPTAEYFuGjhfJO
+    username: wsAPIGee
+    password: Roger2024
+  api:
+    base-url: "https://uat-api.experian.cl/"
+    endpoints:
+      irut0202: "cl/cr/irut0202/v1/morosidades/obtener"
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      irut0202Service:
+        slidingWindowSize: 10
+        minimumNumberOfCalls: 5
+        failureRateThreshold: 50
+        waitDurationInOpenState: 10s
+        permittedNumberOfCallsInHalfOpenState: 3
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        registerHealthIndicator: true
+
+  retry:
+    instances:
+      irut0202Service:
+        maxAttempts: 3
+        waitDuration: 2s
+        retryExceptions:
+          - org.springframework.web.client.HttpServerErrorException
+          - org.springframework.web.client.ResourceAccessException
+
+  timelimiter:
+    instances:
+      irut0202Service:
+        timeoutDuration: 5s
+
+logging:
+  level:
+    org.springframework.security: OFF
+    com.business.report.expe: DEBUG
