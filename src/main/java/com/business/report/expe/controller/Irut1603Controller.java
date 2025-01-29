@@ -1,8 +1,8 @@
 package com.business.report.expe.controller;
 
-import com.business.report.expe.model.Irut0202Response;
+import com.business.report.expe.model.Irut1603Response;
 import com.business.report.expe.model.RutRequest;
-import com.business.report.expe.service.Irut0202Service;
+import com.business.report.expe.service.Irut1603Service;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,20 +10,20 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 @RestController
-@RequestMapping("/api/v1/irut0202")
-public class Irut0202Controller {
+@RequestMapping("/api/v1/irut1603")
+public class Irut1603Controller {
 
-    private final Irut0202Service irut0202Service;
+    private final Irut1603Service irut1603Service;
 
-    public Irut0202Controller(Irut0202Service irut0202Service) {
-        this.irut0202Service = irut0202Service;
+    public Irut1603Controller(Irut1603Service irut1603Service) {
+        this.irut1603Service = irut1603Service;
     }
 
     @PostMapping("/consultar")
     public ResponseEntity<?> consultarRut(@RequestBody RutRequest request) {
         try {
-            CompletableFuture<Irut0202Response> futureResponse = irut0202Service.consultarRut(request);
-            Irut0202Response response = futureResponse.get();
+            CompletableFuture<Irut1603Response> futureResponse = irut1603Service.consultarRut(request);
+            Irut1603Response response = futureResponse.get(); // Esperamos la respuesta del servicio asíncrono
 
             if (response != null) {
                 return ResponseEntity.ok(response);

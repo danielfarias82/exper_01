@@ -21,32 +21,53 @@ experian:
     base-url: "https://uat-api.experian.cl/"
     endpoints:
       irut0202: "cl/cr/irut0202/v1/morosidades/obtener"
+      irut1603: "cl/cr/irut1603/v1/deudas/obtener"
+      irut0502: "cl/cr/irut0502/v1/quiebras/obtener"
+      irut0702: "cl/cr/irut0702/v1/infracciones-laborales/obtener"
+      irut0802: "cl/cr/irut0802/v1/prendas-sin-desplazamiento/obtener"
+      irut1202: "cl/cr/irut1202/v1/protestos-impagos/obtener"
+      irut1503: "cl/cr/irut1503/v1/deuda-leasing/obtener"
 
 resilience4j:
   circuitbreaker:
-    instances:
-      irut0202Service:
-        slidingWindowSize: 10
-        minimumNumberOfCalls: 5
-        failureRateThreshold: 50
-        waitDurationInOpenState: 10s
-        permittedNumberOfCallsInHalfOpenState: 3
+    configs:
+      default:
+        slidingWindowSize: 10 # Últimas 10 llamadas evaluadas
+        minimumNumberOfCalls: 5 # Mínimo de llamadas antes de abrir el circuito
+        failureRateThreshold: 50 # Abre el circuito si el 50% de las llamadas fallan
+        waitDurationInOpenState: 10s # Tiempo de espera antes de probar nuevamente
+        permittedNumberOfCallsInHalfOpenState: 3 # Número de intentos en Half-Open antes de cerrar o abrir el circuito
         automaticTransitionFromOpenToHalfOpenEnabled: true
         registerHealthIndicator: true
+    instances:
+      irut1603Service:
+        baseConfig: default
+      irut0202Service:
+        baseConfig: default
 
   retry:
-    instances:
-      irut0202Service:
-        maxAttempts: 3
-        waitDuration: 2s
+    configs:
+      default:
+        maxAttempts: 3 # Número de reintentos antes de fallar
+        waitDuration: 2s # Tiempo de espera entre intentos
         retryExceptions:
           - org.springframework.web.client.HttpServerErrorException
           - org.springframework.web.client.ResourceAccessException
+    instances:
+      irut1603Service:
+        baseConfig: default
+      irut0202Service:
+        baseConfig: default
 
   timelimiter:
+    configs:
+      default:
+        timeoutDuration: 5s # Tiempo máximo permitido para la respuesta
     instances:
+      irut1603Service:
+        baseConfig: default
       irut0202Service:
-        timeoutDuration: 5s
+        baseConfig: default
 
 logging:
   level:
