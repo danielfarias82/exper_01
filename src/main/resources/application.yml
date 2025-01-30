@@ -27,6 +27,12 @@ experian:
       irut0802: "cl/cr/irut0802/v1/prendas-sin-desplazamiento/obtener"
       irut1202: "cl/cr/irut1202/v1/protestos-impagos/obtener"
       irut1503: "cl/cr/irut1503/v1/deuda-leasing/obtener"
+      irut1802: "cl/cr/irut1802/v1/direcciones/obtener"
+      irut3201: "cl/cr/irut3201/v1/bienes-raices/obtener"
+      irut8202: "cl/cr/irut8202/v1/protestos-vigentes/obtener"
+      sncr0501: "cl/cr/sncr0501/v1/protestos-en-tramite/obtener"
+      sncr1001: "cl/cr/sncr1001/v1/consultas-rut/obtener"
+      sncr3302: "cl/da/sncr3302/v1/scoring-bancario/obtener"
 
 resilience4j:
   circuitbreaker:
