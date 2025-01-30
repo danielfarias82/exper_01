@@ -33,6 +33,7 @@ experian:
       sncr0501: "cl/cr/sncr0501/v1/protestos-en-tramite/obtener"
       sncr1001: "cl/cr/sncr1001/v1/consultas-rut/obtener"
       sncr3302: "cl/da/sncr3302/v1/scoring-bancario/obtener"
+      sncr3501: "cl/cr/sncr3501/v1/socios-sociedades/obtener"
 
 resilience4j:
   circuitbreaker:
