@@ -60,6 +60,7 @@ public abstract class BaseService<T> {
         }
     }
 
+    @SuppressWarnings("unused")
     private CompletableFuture<T> fallbackResponse(String endpoint, ParameterizedTypeReference<T> responseType,
             Map<String, String> requestBody, Throwable t) {
         System.err.println("Fallback ejecutado para " + endpoint + ". Motivo: " + t.getMessage());

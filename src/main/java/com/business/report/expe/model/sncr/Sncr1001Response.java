@@ -2,6 +2,7 @@ package com.business.report.expe.model.sncr;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import lombok.Data;
+import java.util.List;
 
 @Data
 public class Sncr1001Response {
@@ -25,4 +26,19 @@ public class Sncr1001Response {
 
     @JsonAlias("TotalConsultas")
     private String totalConsultas;
+
+    @JsonAlias("Detalles")
+    private List<Sncr1001Detalle> detalles;
+}
+
+@Data
+class Sncr1001Detalle {
+    @JsonAlias("FechaRegistro")
+    private String fechaRegistro;
+
+    @JsonAlias("EmisorConsulta")
+    private String emisorConsulta;
+
+    @JsonAlias("TipoInforme")
+    private String tipoInforme;
 }

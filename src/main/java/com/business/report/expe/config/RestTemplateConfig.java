@@ -11,8 +11,13 @@ import java.security.cert.X509Certificate;
 @Configuration
 public class RestTemplateConfig {
 
+    @Bean
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
+    }
+
     @Bean("proxyRestTemplate")
-    public RestTemplate restTemplate() throws Exception {
+    public RestTemplate proxyRestTemplate() throws Exception {
         TrustManager[] trustAllCertificates = new TrustManager[] {
                 new X509TrustManager() {
                     @Override
