@@ -14,10 +14,10 @@ import java.util.concurrent.CompletableFuture;
 @Service
 public class Irut3201Service extends BaseService<ApiWrapperResponse<Irut3201Response>> {
 
-    @Value("${experian.api.base-url}")
+    @Value("${experian.services.url}")
     private String baseUrl;
 
-    @Value("${experian.api.endpoints.irut3201}")
+    @Value("${experian.services.endpoints.irut3201}")
     private String irut3201Endpoint;
 
     public Irut3201Service(RestTemplate restTemplate, TokenServiceImpl tokenService) {

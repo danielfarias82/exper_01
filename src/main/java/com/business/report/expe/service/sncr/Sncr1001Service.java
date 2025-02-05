@@ -16,10 +16,10 @@ import java.util.concurrent.CompletableFuture;
 @Service
 public class Sncr1001Service extends BaseService<ApiWrapperResponse<Sncr1001Response>> {
 
-    @Value("${experian.api.base-url}")
+    @Value("${experian.services.url}")
     private String baseUrl;
 
-    @Value("${experian.api.endpoints.sncr1001}")
+    @Value("${experian.services.endpoints.sncr1001}")
     private String sncr1001Endpoint;
 
     public Sncr1001Service(RestTemplate restTemplate, TokenServiceImpl tokenService) {

@@ -16,10 +16,10 @@ import java.util.concurrent.CompletableFuture;
 @Service
 public class Sncr3501Service extends BaseService<ApiWrapperResponse<Sncr3501Response>> {
 
-    @Value("${experian.api.base-url}")
+    @Value("${experian.services.url}")
     private String baseUrl;
 
-    @Value("${experian.api.endpoints.sncr3501}")
+    @Value("${experian.services.endpoints.sncr3501}")
     private String sncr3501Endpoint;
 
     public Sncr3501Service(RestTemplate restTemplate, TokenServiceImpl tokenService) {
@@ -31,7 +31,7 @@ public class Sncr3501Service extends BaseService<ApiWrapperResponse<Sncr3501Resp
                 new ParameterizedTypeReference<ApiWrapperResponse<Sncr3501Response>>() {
                 },
                 Map.of(
-                    "rut", request.getRut() // Solo enviando el campo rut
+                        "rut", request.getRut() // Solo enviando el campo rut
                 ))
                 .thenApply(wrapper -> (wrapper != null) ? wrapper.getData() : null);
     }

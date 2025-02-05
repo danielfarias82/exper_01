@@ -1,5 +1,5 @@
 server:
-  port: 8090
+  port: 8080
 
 spring:
   jackson:
@@ -17,8 +17,8 @@ experian:
     client-secret: qTaPTAEYFuGjhfJO
     username: wsAPIGee
     password: Roger2024
-  api:
-    base-url: "https://uat-api.experian.cl/"
+  services:
+    url: "https://uat-api.experian.cl/"
     endpoints:
       irut0202: "cl/cr/irut0202/v1/morosidades/obtener"
       irut1603: "cl/cr/irut1603/v1/deudas/obtener"
