@@ -13,8 +13,8 @@ spring:
 experian:
   oauth2:
     url: https://uat-us-api.experian.com/oauth2/v1/token
-    client-id: 5AUALtffLUEz3NxVVr9gS0WBImq9uskw
-    client-secret: qTaPTAEYFuGjhfJO
+    client-id: DknTSdpwnmQlQlzuGa7MZJoPIqP8SGvA
+    client-secret: oWftfBDjxKYptB0N
     username: wsAPIGee
     password: Roger2024
   services:
@@ -26,8 +26,13 @@ experian:
       irut0702: "cl/cr/irut0702/v1/infracciones-laborales/obtener"
       irut0802: "cl/cr/irut0802/v1/prendas-sin-desplazamiento/obtener"
       irut1202: "cl/cr/irut1202/v1/protestos-impagos/obtener"
+      irut1402: "cl/cr/irut1402/v1/multas-banco-central/obtener"
       irut1503: "cl/cr/irut1503/v1/deuda-leasing/obtener"
       irut1802: "cl/cr/irut1802/v1/direcciones/obtener"
+      irut2602: "cl/cr/irut2602/v1/directorio-personas/obtener"
+      irut2702: "cl/cr/irut2702/v1/domicilios-particulares/obtener"
+      irut2802: "cl/cr/irut2802/v1/domicilios-laborales/obtener"
+      irut3102: "cl/cr/irut3102/v1/situaciones-tributarias/obtener"
       irut3201: "cl/cr/irut3201/v1/bienes-raices/obtener"
       irut8202: "cl/cr/irut8202/v1/protestos-vigentes/obtener"
       sncr0501: "cl/cr/sncr0501/v1/protestos-en-tramite/obtener"
@@ -35,6 +40,12 @@ experian:
       sncr3302: "cl/da/sncr3302/v1/scoring-bancario/obtener"
       sncr3501: "cl/cr/sncr3501/v1/socios-sociedades/obtener"
       cedu0102: "cl/cr/cedu0102/v1/cedulas/estado/obtener"
+      busc3200: "cl/cr/busc3200/v1/personas/obtener"
+      busc3300: "cl/cr/busc3300/v1/empresas/obtener"
+      sncr1201: "cl/cr/sncr1201/v1/protestos/obtener"
+      sncr1301: "cl/cr/sncr1301/v1/deudas/obtener"
+      sncr1401: "cl/cr/sncr1401/v1/periodos-deudas/obtener"
+      sncr2901: "cl/cr/sncr2901/v1/directorio-personas/obtener"
 
 resilience4j:
   circuitbreaker:

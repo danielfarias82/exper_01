@@ -19,4 +19,9 @@ public class Sncr0501Response {
 
     @JsonAlias("Nombre")
     private String nombre;
+
+    public void setSuccess(boolean b) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setSuccess'");
+    }
 }
